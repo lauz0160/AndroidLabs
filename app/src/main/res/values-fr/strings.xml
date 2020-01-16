@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mon Application Android Labs</string>
-    <string name="hello_message">Bonjour!</string>
-    <string name="ButtonText">Je suis un bouton</string>
+    <string name="SwitchOnOff">Allumer / Éteindre</string>
+    <string name="TextView">Regarder mon GUI</string>
+    <string name="ButtonText">Cliquez ici</string>
+    <string name="CheckBox">Regarde ça</string>
+    <string name="EditText">Ecriver ici</string>
+    <string name="ToastMessage">Voici plus d\'information</string>
+    <string name="SnackMessageChecked">Le boite est maintenent cochée</string>
+    <string name="SnackMessageUnChecked">Le boite est maintenent pas cochée </string>
+    <string name="SnackMessageOff">Le switch et maintenent éteindre</string>
+    <string name="SnackMessageOn">Le switch wt maintenent allumer</string>
 </resources>
