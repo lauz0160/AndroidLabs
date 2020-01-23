@@ -11,4 +11,15 @@
     <string name="SnackMessageUnChecked">Le boite est maintenent pas cochée </string>
     <string name="SnackMessageOff">Le switch et maintenent éteindre</string>
     <string name="SnackMessageOn">Le switch wt maintenent allumer</string>
+    <string name="Click">Cliquez le button pour prendre un photo</string>
+    <string name="EditEmail">Entrer votre email</string>
+    <string name="EditEnterEmail">Ecriver votre email ici</string>
+    <string name="EditName">Entrer votre nom</string>
+    <string name="LoginButton">Login</string>
+    <string name="TextEmail">Votre email:</string>
+    <string name="TextEnterEmail">Entrer votre email</string>
+    <string name="TextEnterPassword">Entrer votre mot de passe</string>
+    <string name="TextName">Votre nom:</string>
+    <string name="TextProfile">"Votre profile: "</string>
+
 </resources>

@@ -2,51 +2,72 @@ package com.example.myapplicationandroidlabs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.Switch;
-import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences prefs;
+    SharedPreferences.Editor edit;
+    EditText FirstEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_relative);
+        setContentView(R.layout.lab3_main);
 
-        Button button1 = findViewById(R.id.button1);
-        button1.setOnClickListener(btn -> Toast.makeText(getApplicationContext(), getString(R.string.ToastMessage) , Toast.LENGTH_LONG).show());
+        prefs  = getSharedPreferences("file", Context.MODE_PRIVATE);
+        edit = prefs.edit();
 
+        FirstEmail = findViewById(R.id.EditEnterEmail);
+        FirstEmail.setText(prefs.getString("email",""));
 
-
-        CheckBox checkBox1 = findViewById(R.id.checkBox);
-        checkBox1.setOnCheckedChangeListener((cb, isChecked)-> {
-            Snackbar sBar = Snackbar.make(checkBox1,"",Snackbar.LENGTH_LONG);
-            if (checkBox1.isChecked()){
-                sBar.setText( getString(R.string.SnackMessageChecked));
-            }
-            else {
-                sBar.setText( getString(R.string.SnackMessageUnChecked));
-            }
-            sBar.setAction("Undo", click -> cb.setChecked(!isChecked));
-            sBar.show();
-        });
+        Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
 
 
-        Switch switch1 = findViewById(R.id.switch1);
-        switch1.setOnCheckedChangeListener((cb, isChecked)-> {
-            Snackbar sBar = Snackbar.make(switch1,"",Snackbar.LENGTH_LONG);
-            if (switch1.isChecked()){
-                sBar.setText( getString(R.string.SnackMessageOn));
-            }
-            else {
-                sBar.setText( getString(R.string.SnackMessageOff));
-            }
-            sBar.setAction("Undo", click -> cb.setChecked(!isChecked));
-            sBar.show();
+        Button login = findViewById(R.id.ButtonLogin);
+        login.setOnClickListener(btn -> {
+            goToProfile.putExtra("email", getEmailContent());
+            startActivity(goToProfile);
         });
     }
+
+    private String getEmailContent(){
+        String text = FirstEmail.getText().toString();
+        return text;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        edit.putString("email",FirstEmail.getText().toString());
+        edit.commit();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+
 }
