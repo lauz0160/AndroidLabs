@@ -21,5 +21,14 @@
     <string name="TextEnterPassword">Entrer votre mot de passe</string>
     <string name="TextName">Votre nom:</string>
     <string name="TextProfile">"Votre profile: "</string>
+    <string name="ToChat">Va au Chat</string>
+    <string name="Send">Envoyer</string>
+    <string name="Receive">Recevoir</string>
+    <string name="MessageBox">Message ici</string>
+    <string name="alertTitle">Est ce que tu veut enlever ca?</string>
+    <string name="alertRow">"Le message numero est: "</string>
+    <string name="alertID">"Le database ID est: "</string>
+    <string name="Yes">Oui</string>
+    <string name="No">Non</string>
 
 </resources>
