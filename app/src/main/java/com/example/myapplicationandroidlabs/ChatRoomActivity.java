@@ -34,7 +34,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     final static String COL_TEXT = "Text";
     final static String COL_BOOL = "isSent";
     final static String COL_ID = "_id";
-    final static int VERSION_NUM = 1;
+    final static int VERSION_NUM = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,8 +169,12 @@ public class ChatRoomActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
+        {   //Drop the old table:
+            db.execSQL( "DROP TABLE IF EXISTS " + TABLE_NAME);
 
+            //Create the new table:
+            onCreate(db);
         }
     }
 
