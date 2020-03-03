@@ -33,8 +33,11 @@ public class ProfileActivity extends AppCompatActivity {
         Log.e(ACTIVITY_NAME, "In Function onCreate");
 
 
-        Button b = findViewById(R.id.ButtonToChat);
-        b.setOnClickListener(click -> startActivity(new Intent(ProfileActivity.this, ChatRoomActivity.class)));
+        Button chat = findViewById(R.id.ButtonToChat);
+        chat.setOnClickListener(click -> startActivity(new Intent(ProfileActivity.this, ChatRoomActivity.class)));
+
+        Button weather = findViewById(R.id.ButtonToWeather);
+        weather.setOnClickListener(click -> startActivity(new Intent(ProfileActivity.this, WeatherForecast.class)));
     }
 
     @Override

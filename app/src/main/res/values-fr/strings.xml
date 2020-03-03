@@ -30,5 +30,10 @@
     <string name="alertID">"Le database ID est: "</string>
     <string name="Yes">Oui</string>
     <string name="No">Non</string>
+    <string name="ToWeather">"Va au Temperature "</string>
+    <string name="curTemp">"Temperature Actuelle: "</string>
+    <string name="minTemp">"Temperature Minimum: "</string>
+    <string name="maxTemp">"Temperature Maximum: "</string>
+    <string name="uv">"Index UV: "</string>
 
 </resources>
