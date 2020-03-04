@@ -162,13 +162,13 @@ public class WeatherForecast extends AppCompatActivity {
         protected void onPostExecute(String s) {
 
             TextView curText = findViewById(R.id.currentTemp);
-            curText.setText("   "+ R.string.curTemp +"   "+curTemp);
+            curText.setText("   "+ getResources().getString(R.string.curTemp) +"   "+curTemp);
             TextView minText = findViewById(R.id.MinTemp);
-            minText.setText("   "+ R.string.minTemp +"   "+minTemp);
+            minText.setText("   "+ getResources().getString(R.string.minTemp )+"   "+minTemp);
             TextView maxText = findViewById(R.id.MaxTemp);
-            maxText.setText("   "+ R.string.maxTemp +"   "+maxTemp);
+            maxText.setText("   "+getResources().getString( R.string.maxTemp )+"   "+maxTemp);
             TextView uVText = findViewById(R.id.UV);
-            uVText.setText("   "+ R.string.uv +"   "+uV);
+            uVText.setText("   "+getResources().getString( R.string.uv) +"   "+uV);
 
             ProgressBar progBar = findViewById(R.id.progressBar);
             progBar.setVisibility(View.INVISIBLE);
