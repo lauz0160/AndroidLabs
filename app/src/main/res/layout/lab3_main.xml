@@ -2,32 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp">
 
     <TextView
         android:id="@+id/TextEnterEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TextEnterEmail"/>
+        android:text="@string/TextEnterEmail"
+        android:nextFocusDown="@id/EditEnterEmail"/>
 
     <EditText
         android:id="@+id/EditEnterEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/EditEnterEmail"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:nextFocusDown="@id/TextEnterPassword"
+        android:nextFocusUp="@id/EditEnterEmail"/>
 
     <TextView
         android:id="@+id/TextEnterPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TextEnterPassword"/>
+        android:text="@string/TextEnterPassword"
+        android:nextFocusDown="@id/EditEnterPassword"
+        android:nextFocusUp="@id/EditEnterEmail"/>
 
     <EditText
         android:id="@+id/EditEnterPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:nextFocusDown="@id/ButtonLogin"
+        android:nextFocusUp="@id/TextEnterPassword"/>
 
     <Button
         android:id="@+id/ButtonLogin"

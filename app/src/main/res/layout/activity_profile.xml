@@ -2,58 +2,78 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
+    >
 
 
     <TextView
         android:id="@+id/TextProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TextProfile"/>
+        android:text="@string/TextProfile"
+        android:nextFocusDown="@id/TextName"/>
 
     <TextView
         android:id="@+id/TextName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TextName"/>
+        android:text="@string/TextName"
+        android:nextFocusDown="@id/EditName"
+        android:nextFocusUp="@id/TextProfile"/>
 
     <EditText
         android:id="@+id/EditName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/EditName"
-        android:inputType="textPersonName"/>
+        android:inputType="textPersonName"
+        android:nextFocusDown="@id/TextEmail"
+        android:nextFocusUp="@id/TextName"/>
 
     <TextView
         android:id="@+id/TextEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TextEmail"/>
+        android:text="@string/TextEmail"
+        android:nextFocusDown="@id/EditEmail"
+        android:nextFocusUp="@id/EditName"/>/>
 
     <EditText
         android:id="@+id/EditEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/EditEmail"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:nextFocusDown="@id/ButtonCamera"
+        android:nextFocusUp="@id/TextEmail"/>
 
     <ImageButton
         android:id="@+id/ButtonCamera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/picture_frame"/>
+        android:src="@android:drawable/picture_frame"
+        android:nextFocusDown="@id/TextClick"
+        android:nextFocusUp="@id/EditEmail"/>
 
     <TextView
         android:id="@+id/TextClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Click"/>
+        android:text="@string/Click"
+        android:nextFocusDown="@id/ButtonToChat"
+        android:nextFocusUp="@id/ButtonCamera"/>
 
     <Button
         android:id="@+id/ButtonToChat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ToChat"/>
+        android:text="@string/ToChat"
+        android:nextFocusDown="@id/ButtonToWeather"
+        android:nextFocusUp="@id/TextClick"/>
 
     <Button
         android:id="@+id/ButtonToWeather"
