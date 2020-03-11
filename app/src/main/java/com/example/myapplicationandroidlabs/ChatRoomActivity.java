@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,6 +30,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     private ArrayList<Message> messages = new ArrayList<>(Arrays.asList());
     private MyListAdapter myAdapter;
     SQLiteDatabase db;
+    DetailsFragment dFragment;
 
     final static String DATABASE_NAME = "MessagesDB";
     final static String TABLE_NAME = "Messages";
@@ -40,6 +43,8 @@ public class ChatRoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
+
+        Boolean phone = null==findViewById(R.id.frame);
 
         loadDataFromDatabase();
 
@@ -66,16 +71,47 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         myList.setOnItemLongClickListener((parent, view, position, id) -> {
             alertDialogBuilder.setTitle(R.string.alertTitle);
-            alertDialogBuilder.setMessage(getString(R.string.alertRow )+ position + "\n"+getString(R.string.alertID)+ id);
+            alertDialogBuilder.setMessage(getString(R.string.alertRow) + position + "\n" + getString(R.string.alertID) + id);
             alertDialogBuilder.setPositiveButton(R.string.Yes, (click, arg) -> {
-                db.delete(TABLE_NAME, COL_ID + "= ?", new String[] {Long.toString(messages.get(position).getID())});
+                db.delete(TABLE_NAME, COL_ID + "= ?", new String[]{Long.toString(messages.get(position).getID())});
                 messages.remove(position);
                 myAdapter.notifyDataSetChanged();
+                if(!phone) {
+                    getSupportFragmentManager().beginTransaction().remove(dFragment).commit();
+                }
             });
-            alertDialogBuilder.setNegativeButton(R.string.No, (click, arg) -> {  });
+            alertDialogBuilder.setNegativeButton(R.string.No, (click, arg) -> {
+            });
             alertDialogBuilder.create().show();
             return true;
         });
+
+
+        myList.setOnItemClickListener((parent, view, position, id) -> {
+            Bundle dataToPass = new Bundle();
+            dataToPass.putBoolean("sent", messages.get(position).isSent());
+            dataToPass.putString("message", messages.get(position).getText() );
+            dataToPass.putInt("position", position);
+            dataToPass.putLong("id", id);
+
+            if(phone) {
+                Intent next = new Intent(ChatRoomActivity.this, Phone_fragment.class);
+                next.putExtras(dataToPass);
+                startActivity(next);
+
+            }else{
+                dFragment = new DetailsFragment(); //add a DetailFragment
+                dFragment.setArguments( dataToPass ); //pass it a bundle for information
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frame, dFragment) //Add the fragment in FrameLayout
+                        .commit(); //actually load the fragment.
+            }
+        });
+
+
+
+
     }
 
 
