@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/option1"
+        android:icon="@drawable/tiger"
+        android:orderInCategory="100"
+        android:title="Option1"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/option2"
+        android:icon="@drawable/dragon"
+        android:orderInCategory="200"
+        android:title="Option2"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/option3"
+        android:icon="@drawable/monkey"
+        android:orderInCategory="300"
+        android:title="Option3"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/option4"
+        android:orderInCategory="400"
+        android:title="Option4"
+        app:showAsAction="never" />
+
+</menu>

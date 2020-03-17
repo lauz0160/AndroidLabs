@@ -34,13 +34,9 @@ public class DetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
-        Bundle dataFromActivity;
-        long id;
-
-        dataFromActivity = getArguments();
-        id = dataFromActivity.getLong("id");
+        Bundle dataFromActivity = getArguments();
+        long id = dataFromActivity.getLong("id");
 
         // Inflate the layout for this fragment
         View result =  inflater.inflate(R.layout.fragment_details, container, false);
@@ -97,7 +93,6 @@ public class DetailsFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }

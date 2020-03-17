@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/ChatList"
+            android:layout_margin="20dp"/>
+
+        <ListView
+            android:id="@+id/ChatList"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ButtonReceive"
+            android:layout_alignParentTop="true"/>
+
+        <Button
+            android:id="@+id/ButtonSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Send"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"/>
+
+        <EditText
+            android:id="@+id/MessageBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/MessageBox"
+            android:layout_toEndOf="@id/ButtonSend"
+            android:layout_toStartOf="@id/ButtonReceive"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@id/ButtonReceive"/>
+
+        <Button
+            android:id="@+id/ButtonReceive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Receive"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@id/ChatList"/>
+
+</RelativeLayout>

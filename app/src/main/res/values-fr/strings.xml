@@ -35,5 +35,9 @@
     <string name="minTemp">"Temperature Minimum: "</string>
     <string name="maxTemp">"Temperature Maximum: "</string>
     <string name="uv">"Index UV: "</string>
+    <string name="ToToolbar">Va au page Toolbar</string>
+    <string name="go_back_to_login">Go back to login</string>
+    <string name="open" />
+    <string name="close">close</string>
 
 </resources>
